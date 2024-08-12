@@ -9,7 +9,7 @@ const Sidebar = () => {
   const renderToggle = (props) => <Avatar circle {...props} src={pcc} />;
 
   return (
-    <div className="bg-[#2c2c2c] flex md:flex-col flex-row justify-between md:w-fit h-screen dark:bg-[#2c2c2c]">
+    <div className="bg-[#2c2c2c] flex md:flex-col flex-row justify-between md:w-fit dark:bg-[#2c2c2c]">
       <ul className="flex md:flex-col gap-4 flex-row text-nowrap mx-5 md:my-2 justify-between">
         <li className="w-full text-lg font-medium rounded-lg md:my-2 my-6 md:mx-[8px] ">
           <img src={power} alt="add" />
