@@ -7,3 +7,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .param-div {
+        @apply flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 text-center justify-between items-center max-[360px]:gap-1
+    }
+    .value {
+        @apply bg-white w-20 py-1 font-OpenSans font-medium border rounded-full;
+    }
+    .parameter {
+        @apply bg-[#A8E6CF] border md:w-64 font-Montserrat w-56 font-semibold py-2 rounded-full 2xl:py-4;
+    }
+    .parameter1 {
+        @apply bg-[#FF8B94] border md:w-64 font-Montserrat w-56 font-semibold py-2 rounded-full 2xl:py-4;
+    }
+  }

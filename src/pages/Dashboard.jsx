@@ -61,354 +61,354 @@ const Dashboard = () => {
                 </div>
 
                 <div className="">
-                  <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 justify-between rounded-md p-2 text-center items-center max-[360px]:gap-1 ">
+                  <div className="param-div">
                     <h2
-                      className={`bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4`}
+                      className='parameter'
                     >
                       LineVoltage-1(R)
                     </h2>
                     <p
-                      className={`bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2`}
+                      className='value'
                     >
                       {data?.lineVlotageR}
                     </p>
                     <p
-                      className={`bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2`}
+                      className='value'
                     >
                       {data?.lineVlotageR}
                     </p>
                     <p
-                      className={`bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2`}
+                      className='value'
                     >
                       {data?.lineVlotageR}
                     </p>
                     <p
-                      className={`bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2`}
+                      className='value'
                     >
                       {data?.lineVlotageR}
                     </p>
                   </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 justify-between rounded-md p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         LineVoltage-2 (Y)
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageY}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageY}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageY}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageY}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         LineVoltage-3 (B)
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageB}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageB}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageB}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.lineVoltageB}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         PhaseVoltage-1
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVolate1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVolate1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVolate1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVolate1}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         PhaseVoltage-2
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage2}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         PhaseVoltage-3
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.phaseVoltage3}
                       </p>
                     </div>
     
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         Current-1
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current1}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         Current-2
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current2}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#A8E6CF] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className="parameter">
                         Current-3
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.current3}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         TotalKW
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKW}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKW}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKW}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKW}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 justify-between text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter1'>
                         TotalKVA
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKVA}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKVA}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKVA}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.totalKVA}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter1'>
                         PowerFactor1
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor1}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor1}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter1'>
                         PowerFactor2
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor2}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor2}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter1'>
                         PowerFactor3
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor3}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.powerFactor3}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter1'>
                         Average PowerFactor(inst)
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.AvgPowerFactor}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.AvgPowerFactor}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.AvgPowerFactor}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.AvgPowerFactor}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md justify-between p-2 text-center items-center max-[360px]:gap-1">
-                      <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                      <h2 className='parameter'>
                         Frequency(HZ)
                       </h2>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.frequency}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.frequency}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.frequency}
                       </p>
-                      <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                      <p className='value'>
                         {data?.frequency}
                       </p>
                     </div>
 
-                    <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 text-center justify-between items-center max-[360px]:gap-1">
-                    <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                    <div className="param-div">
+                    <h2 className='parameter'>
                     Net PowerFactor
                     </h2>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAH}
                     </p>
                   </div>
 
-                  <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 text-center justify-between items-center max-[360px]:gap-1">
-                    <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                  <div className="param-div">
+                    <h2 className='parameter'>
                       TotalNetKVAH
                     </h2>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAh}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAh}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAh}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVAh}
                     </p>
                   </div>
 
-                  <div className="flex md:gap-10 gap-8 max-[620px]:gap-6 rounded-md p-2 text-center justify-between items-center max-[360px]:gap-1">
-                    <h2 className="bg-[#FF8B94] border md:w-64 w-56 font-medium py-2 rounded-full 2xl:py-4">
+                  <div className="param-div">
+                    <h2 className='parameter'>
                       TotalNetKVARH
                     </h2>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVARH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVARH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVARH}
                     </p>
-                    <p className="bg-white px-4 py-1 border border- rounded-full min-[2000px]:px-6 2xl:py-2 max-[450px]:px-2">
+                    <p className='value'>
                       {data?.totalNetKVARH}
                     </p>
                   </div>
