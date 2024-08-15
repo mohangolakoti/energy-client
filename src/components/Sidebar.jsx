@@ -14,6 +14,7 @@ const Sidebar = () => {
         <li className="w-full text-lg font-medium rounded-lg md:my-2 my-6 md:mx-[8px] ">
           <img src={power} alt="add" />
         </li>
+        <hr />
         <li className="w-full text-lg font-medium cursor-pointer md:my-8 md:mx-2 ml-5 my-6">
           <Link to="/">
             <img src={home} alt="add" className="w-[30px]" />
@@ -23,16 +24,6 @@ const Sidebar = () => {
           <Link to="/graphs">
             <img src={chart} alt="add" />
           </Link>
-        </li>
-        <li className="w-full text-lg font-medium rounded-lg cursor-pointer md:my-9 md:mx-2 ml-5 my-6">
-        <Dropdown renderToggle={renderToggle} className="absolute">
-          <div className="bg-[#2c2c2c] p-2 mt-2 border rounded-lg text-white">
-            <Dropdown.Item className="hover:bg-white px-2 rounded-sm hover:text-black"><Link to='/pcc1'>PCC1</Link></Dropdown.Item>
-            <Dropdown.Item className="hover:bg-white px-2 rounded-sm hover:text-black"><Link to='/pcc2'>PCC2</Link></Dropdown.Item>
-            <Dropdown.Item className="hover:bg-white px-2 rounded-sm hover:text-black">PCC3</Dropdown.Item>
-            <Dropdown.Item className="hover:bg-white px-2 rounded-sm hover:text-black">PCC4</Dropdown.Item>
-            </div>
-          </Dropdown>
         </li>
       </ul>
       {/* <ul className="flex md:flex-col flex-row text-nowrap p-5 cursor-pointer">
