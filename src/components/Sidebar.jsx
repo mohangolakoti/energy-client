@@ -1,12 +1,8 @@
 import React from "react";
-import { useTheme } from "./ThemeContext";
 import { home, chart, power, user, dark, light, pcc } from "../constants";
 import { Link } from "react-router-dom";
-import { Dropdown, Avatar } from "rsuite";
 
 const Sidebar = () => {
-  const { theme, toggleTheme } = useTheme();
-  const renderToggle = (props) => <Avatar circle {...props} src={pcc} />;
 
   return (
     <div className="bg-[#2c2c2c] flex md:flex-col flex-row justify-between md:w-fit dark:bg-[#2c2c2c]">
@@ -26,14 +22,7 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
-      {/* <ul className="flex md:flex-col flex-row text-nowrap p-5 cursor-pointer">
-          <li className="w-full py-2 text-white text-lg font-medium rounded-lg md:hover:ring-1 md:hover:ring-[#babaf1] md:pl-1.5">
-            <img src={theme === 'light' ? dark : light} alt="add" onClick={toggleTheme}/>
-          </li>
-          <li className="w-full py-3 md:py-2 text-white text-lg font-medium rounded-lg md:hover:ring-1 md:hover:ring-[#babaf1] px-2 md:my-7">
-            <img src={user} alt="add" />
-          </li>
-        </ul> */}
+
     </div>
   );
 };
