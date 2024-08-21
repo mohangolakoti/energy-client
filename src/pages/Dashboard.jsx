@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 import CurrentTime from "../components/CurrentTime";
 import { dark, light, pcc1 } from "../constants";
 import { useTheme } from "../components/ThemeContext";
