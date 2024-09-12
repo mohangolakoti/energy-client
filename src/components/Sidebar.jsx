@@ -1,5 +1,5 @@
 import React from "react";
-import { home, chart, power} from "../constants";
+import { home, chart, power} from "../constants"; 
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
