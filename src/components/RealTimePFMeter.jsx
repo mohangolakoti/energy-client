@@ -9,7 +9,7 @@ const RealTimePFMeter = ({powerFactor}) => {
         <p className="font-medium mt-6">Instaneous  Power Factor </p>
         <p className="bg-[#a4a4e3] mx-4 p-2 my-3 rounded-lg font-semibold">{powerFactor}</p>
         <p className="font-medium mt-6" >Today Power Facotor</p>
-        <p className="bg-[#a4a4e3] mx-4 my-3 p-2 rounded-lg font-semibold">16.24</p>
+        <p className="bg-[#a4a4e3] mx-4 my-3 p-2 rounded-lg font-semibold">0</p>
       </div>
   );
 };
