@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { dark, light } from "../constants";
 import { useTheme } from "../components/ThemeContext";
-import API_URL from '../data/api'
+import {API_URL} from '../data/api'
 
 const SingleMeter = () => {
   const [data, setData] = useState(null);
@@ -18,7 +18,7 @@ const SingleMeter = () => {
         const response = await axios.get(
           `${API_URL}`
         );
-        setData(response.data[0]);
+        setData(response.data);
         console.log(response.data[0]);
       } catch (error) {
         console.error("Error fetching sensor data:", error);
@@ -31,6 +31,15 @@ const SingleMeter = () => {
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
+
+  const getPFClass = (avgPF) => {
+    if (avgPF < 0.7) {
+        return 'bg-red-400'; // Class for red background
+    } else if (avgPF < 0.8) {
+        return 'bg-yellow-400'; // Class for yellow background
+    }
+    return ''; // No special class
+  }
 
   const meters = [
     { id: 1, name: "VDC Block 2&3 Lighting" },
@@ -172,7 +181,7 @@ const SingleMeter = () => {
               </div>
               <div className="flex justify-between items-center">
                 <h2 className="parameter">Power Factor </h2>
-                <p className="param-value">{data?.[`Avg_PF_meter_${id}`]} </p>
+                <p className={`param-value ${getPFClass(data?.Avg_PF_meter_70)}`}>{data?.[`Avg_PF_meter_${id}`]} </p>
               </div>
               </div>
             </div>

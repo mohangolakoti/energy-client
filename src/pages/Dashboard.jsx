@@ -10,7 +10,7 @@ import Sidebar from "../components/Sidebar";
 import RealTimePowerMeter from "../components/RealTimePowerMeter";
 import RealTimePFMeter from "../components/RealTimePFMeter";
 import RealTimeKvahMeter from "../components/RealTimeKvahMeter";
-import API_URL from '../data/api'
+import {API_URL} from '../data/api'
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -48,7 +48,7 @@ const Home = () => {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
-
+  
   return (
     <div className='h-[100vh] flex md:flex-row flex-col'>
     <Sidebar/>
