@@ -10,6 +10,7 @@ import Sidebar from "../components/Sidebar";
 import RealTimePowerMeter from "../components/RealTimePowerMeter";
 import RealTimePFMeter from "../components/RealTimePFMeter";
 import RealTimeKvahMeter from "../components/RealTimeKvahMeter";
+import API_URL from '../data/api'
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -33,7 +34,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://energybackend-v86d.onrender.com/api/sensordata1");
+        const response = await axios.get(`${API_URL}`);
         const newData = response.data
         setData(newData);
       } catch (error) {

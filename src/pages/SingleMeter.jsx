@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { dark, light } from "../constants";
 import { useTheme } from "../components/ThemeContext";
+import API_URL from '../data/api'
 
 const SingleMeter = () => {
   const [data, setData] = useState(null);
@@ -15,7 +16,7 @@ const SingleMeter = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://vems-api.onrender.com/api/sensordata"
+          `${API_URL}`
         );
         setData(response.data[0]);
         console.log(response.data[0]);
