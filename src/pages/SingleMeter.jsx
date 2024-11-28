@@ -19,7 +19,7 @@ const SingleMeter = () => {
           `${API_URL}`
         );
         setData(response.data);
-        console.log(response.data[0]);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching sensor data:", error);
       }

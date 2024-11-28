@@ -1,5 +1,5 @@
 import React from "react";
-import { home, chart, power} from "../constants"; 
+import { home, chart, power, growth} from "../constants"; 
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -16,9 +16,9 @@ const Sidebar = () => {
             <img src={home} alt="add" className="w-[30px]" />
           </Link>
         </li>
-        <li className="w-full text-lg font-medium rounded-lg md:my-2 md:ml-2 ml-4  my-6">
-          <Link to="/graphs">
-            <img src={chart} alt="add" />
+        <li className="w-full text-lg font-medium rounded-lg md:my-6 md:ml-2 ml-4  my-6">
+          <Link to="/sensordata">
+            <img src={growth} alt="add" />
           </Link>
         </li>
       </ul>

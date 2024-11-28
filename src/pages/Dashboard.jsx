@@ -10,44 +10,94 @@ import Sidebar from "../components/Sidebar";
 import RealTimePowerMeter from "../components/RealTimePowerMeter";
 import RealTimePFMeter from "../components/RealTimePFMeter";
 import RealTimeKvahMeter from "../components/RealTimeKvahMeter";
-import {API_URL} from '../data/api'
+import {API_URL} from '../data/api';
+import { API_URL2 } from "../data/api";
 
 const Home = () => {
   const [data, setData] = useState(null);
   const { theme, toggleTheme } = useTheme();
+  const [currentEnergy, setCurrentEnergy] = useState({
+    meter_1: null
+  });
+  const [initialEnergyValues, setInitialEnergyValues] = useState({
+    meter_1: null
+  });
+  const [todayConsumption, setTodayConsumption] = useState({
+    meter_1: null
+  });
+  const [monthlyEnergy, setMonthlyEnergy] = useState(null)
+  const [highestkva, setHighestkva] = useState({
+    today:null,
+    month:null
+  })
 
   const notify = () => toast.error("Energy limit exceeded!");
 
-  /* useEffect(() => {
+  useEffect(() => {
+    // Fetch previous day's energy (initial energy)
     const fetchPreviousDayEnergy = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/previousDayEnergy`);
-        setPreviousDayEnergy(response.data.initialEnergyValues);
+        const response = await axios.get(`${API_URL2}/previousDayEnergy`);
+        const response1 = await axios.get(`${API_URL2}/monthly-energy`);
+        const response3 = await axios.get(`${API_URL2}/highest-kva`);
+
+        setInitialEnergyValues(response.data.initialEnergyValues || {
+          meter_1: null
+        });
+        setMonthlyEnergy(response1.data.totalEnergyConsumptionMeter1.toFixed(3))
+        setHighestkva({
+          today: response3.data.highestKvaToday,
+          month: response3.data.highestKvaMonth
+        })
       } catch (error) {
         console.error("Error fetching previous day energy:", error);
       }
     };
 
     fetchPreviousDayEnergy();
-  }, []); */
+  }, []);
 
   useEffect(() => {
+    // Fetch current energy values every minute
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URL}`);
-        const newData = response.data
+        const newData = response.data;
         setData(newData);
+        setCurrentEnergy({
+          meter_1: newData.TotalNet_KWH_meter_1
+        });
       } catch (error) {
         console.error("Error fetching sensor data:", error);
       }
     };
 
     fetchData();
-    const interval = setInterval(fetchData, 10000); // Fetch data every 10 seconds
+    const interval = setInterval(fetchData, 30000); // Fetch data every 1 minute
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
+  useEffect(() => {
+    // Calculate consumption based on initial energy and current energy
+    if (initialEnergyValues && currentEnergy) {
+      setTodayConsumption({
+        meter_1: initialEnergyValues.meter_1 && currentEnergy.meter_1 ? 
+          (currentEnergy.meter_1 - initialEnergyValues.meter_1).toFixed(3) : 0,
+      });
+    }
+  }, [initialEnergyValues, currentEnergy]);
+
+  const energy = Number(todayConsumption.meter_1).toFixed(3);
+
+  const getPFClass = (avgPF) => {
+    if (avgPF < 0.7) {
+        return 'bg-red-300'; // Class for red background
+    } else if (avgPF < 0.8) {
+        return 'bg-yellow-300'; // Class for yellow background
+    }
+    return ''; // No special class
+  }
   
   return (
     <div className='h-[100vh] flex md:flex-row flex-col'>
@@ -155,9 +205,9 @@ const Home = () => {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-4 grid-cols-1">
-          <EnergyUnits energy={data?.TotalNet_KWH_meter_1.toFixed(1)} />
+          <EnergyUnits energy={energy} monthlyEnergy={monthlyEnergy} />
           <div className="flex flex-col gap-4">
-            <RealTimeKvaMeter kva={data?.Total_KVA_meter_1} />
+            <RealTimeKvaMeter kva={data?.Total_KVA_meter_1} todayKva={highestkva.today} monthKva = {highestkva.month} />
           </div>
         </div>
       </div>

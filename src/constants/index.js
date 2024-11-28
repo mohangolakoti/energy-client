@@ -6,9 +6,10 @@ import user from './logos/user.png'
 import light from './logos/light.png'
 import dark from './logos/dark.png'
 import pcc from './logos/pccs.png'
+import growth from './logos/growth.png'
 
 export {
-    home,chart,power,user,light,dark,pcc,logo
+    home,chart,power,user,light,dark,pcc,logo,growth
 }
 
 export const pcc1 =[

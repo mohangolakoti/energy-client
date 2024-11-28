@@ -3,7 +3,7 @@ import { useTheme } from "../components/ThemeContext";
 import { useEffect, useRef, useState } from "react";
 import alertSound from '../constants/alert.mp3'
 
-const RealTimeKvaMeter = ({ kva }) => {
+const RealTimeKvaMeter = ({ kva, todayKva, monthKva }) => {
   const { theme, toggleTheme } = useTheme();
   const [value, setValue] = useState(0)
   const minEnergy = 0;
@@ -79,8 +79,8 @@ const RealTimeKvaMeter = ({ kva }) => {
         className="min-[2000px]:text-3xl xl:text-xl text-lg max-[500px]:text-base font-medium "
         /* needleColor={theme === 'light' ? '#000' : '#fff'} */
       />
-      <h2 className="font-OpenSans text-sm font-medium flex flex-col">Today Highest Peak Value  <span className="bg-red-300 font-semibold py-1 my-1 rounded-lg text-center">{value} kVA</span></h2>
-      <h2 className="font-OpenSans text-sm font-medium flex flex-col">Month Highest Peak Value  <span className="bg-red-300 font-semibold py-1 my-1 rounded-lg text-center">29.71 kVA</span></h2>
+      <h2 className="font-OpenSans text-sm font-medium flex flex-col">Today Highest Peak Value  <span className="bg-red-300 font-semibold py-1 my-1 rounded-lg text-center">{todayKva > value ? todayKva : value} kVA</span></h2>
+      <h2 className="font-OpenSans text-sm font-medium flex flex-col">Month Highest Peak Value  <span className="bg-red-300 font-semibold py-1 my-1 rounded-lg text-center">{monthKva} kVA</span></h2>
     </div>
   );
 };
