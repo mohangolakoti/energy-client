@@ -1,7 +1,6 @@
 import GaugeChart from "react-gauge-chart";
 import { useTheme } from "../components/ThemeContext";
 import { useEffect, useRef, useState } from "react";
-import alertSound from '../constants/alert.mp3'
 
 const RealTimeKvaMeter = ({ kva, todayKva, monthKva }) => {
   const { theme, toggleTheme } = useTheme();
@@ -21,19 +20,17 @@ const RealTimeKvaMeter = ({ kva, todayKva, monthKva }) => {
   valueHandler()
 
   const [showAlert, setShowAlert] = useState(false);
-  const audioRef = useRef(new Audio(alertSound));
+  
 
   // Function to check KVA limit and show alert
 
   const checkLimit = () => {
     if (kva > 80) {
       setShowAlert(true);
-      audioRef.current.loop = true; // Set audio to loop
-      audioRef.current.play(); // Play alert sound
+      
     } else {
       setShowAlert(false);
-      audioRef.current.pause(); // Stop alert sound if not exceeding limit
-      audioRef.current.currentTime = 0; // Reset audio to start
+      
     }
   };
 
@@ -48,8 +45,7 @@ const RealTimeKvaMeter = ({ kva, todayKva, monthKva }) => {
   // Function to dismiss the alert
   const dismissAlert = () => {
     setShowAlert(false);
-    audioRef.current.pause(); // Stop alert sound
-    audioRef.current.currentTime = 0; // Reset audio to start
+    
   };
 
   return (
