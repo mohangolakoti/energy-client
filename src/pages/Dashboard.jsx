@@ -29,7 +29,13 @@ const Home = () => {
   const [highestkva, setHighestkva] = useState({
     today:null,
     month:null
-  })
+  });
+  const [todayFactor,setTodayFactor] = useState({
+    kwh2:null,
+    kvah2:null,
+    kwh1:null,
+    kvah1:null
+  });
 
   const notify = () => toast.error("Energy limit exceeded!");
 
@@ -40,6 +46,8 @@ const Home = () => {
         const response = await axios.get(`${API_URL2}/previousDayEnergy`);
         const response1 = await axios.get(`${API_URL2}/monthly-energy`);
         const response3 = await axios.get(`${API_URL2}/highest-kva`);
+        const response4 = await axios.get(`${API_URL2}/todayfactor`);
+        console.log(response4.data.data.yesterday.TotalNet_KWH_meter_1)
 
         setInitialEnergyValues(response.data.initialEnergyValues || {
           meter_1: null
@@ -49,6 +57,13 @@ const Home = () => {
           today: response3.data.highestKvaToday,
           month: response3.data.highestKvaMonth
         })
+        setTodayFactor({
+          kwh2: response4.data.data.yesterday.TotalNet_KWH_meter_1.toFixed(2),
+          kvah2: response4.data.data.yesterday.Total_KVA_meter_1.toFixed(2),
+          kwh1: response4.data.data.today.TotalNet_KWH_meter_1.toFixed(2),
+          kvah1: response4.data.data.today.Total_KVA_meter_1.toFixed(2)
+        })
+
       } catch (error) {
         console.error("Error fetching previous day energy:", error);
       }
@@ -205,7 +220,7 @@ const Home = () => {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-4 grid-cols-1">
-          <EnergyUnits energy={energy} monthlyEnergy={monthlyEnergy} />
+          <EnergyUnits energy={energy} monthlyEnergy={monthlyEnergy} kvah2={todayFactor.kvah2} kvah1={todayFactor.kvah1} />
           <div className="flex flex-col gap-4">
             <RealTimeKvaMeter kva={data?.Total_KVA_meter_1} todayKva={highestkva.today} monthKva = {highestkva.month} />
           </div>
@@ -213,7 +228,7 @@ const Home = () => {
       </div>
       <div className="flex md:flex-row gap-4 flex-col h-[44%] mt-4 ">
       <RealTimePowerMeter power={data?.Total_KW_meter_1.toFixed(2)} />
-      <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(2)} />
+      <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(2)} kwh2={todayFactor.kwh2} kvah2={todayFactor.kvah2} kwh1={todayFactor.kwh1} kvah1={todayFactor.kvah1} />
       <RealTimeKvahMeter kvah={data?.TotalNet_KVAH_meter_1.toFixed(1)} />
       </div>
     </section>
