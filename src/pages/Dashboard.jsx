@@ -16,25 +16,14 @@ import { API_URL2 } from "../data/api";
 const Home = () => {
   const [data, setData] = useState(null);
   const { theme, toggleTheme } = useTheme();
-  const [currentEnergy, setCurrentEnergy] = useState({
-    meter_1: null
-  });
-  const [initialEnergyValues, setInitialEnergyValues] = useState({
-    meter_1: null
-  });
-  const [todayConsumption, setTodayConsumption] = useState({
-    meter_1: null
-  });
+  const [todayConsumption, setTodayConsumption] = useState(null);
   const [monthlyEnergy, setMonthlyEnergy] = useState(null)
-  const [highestkva, setHighestkva] = useState({
-    today:null,
-    month:null
-  });
-  const [todayFactor,setTodayFactor] = useState({
-    kwh2:null,
-    kvah2:null,
-    kwh1:null,
-    kvah1:null
+  const [powerFactor,setPowerFactor] = useState(null);
+  const [highestValue, setHighestValue] = useState({
+    kvaToday:null,
+    kvaMonth:null,
+    kwToday:null,
+    kwMonth:null
   });
 
   const notify = () => toast.error("Energy limit exceeded!");
@@ -43,26 +32,19 @@ const Home = () => {
     // Fetch previous day's energy (initial energy)
     const fetchPreviousDayEnergy = async () => {
       try {
-        const response = await axios.get(`${API_URL2}/previousDayEnergy`);
+        const response = await axios.get(`${API_URL2}/sensordata`);
         const response1 = await axios.get(`${API_URL2}/monthly-energy`);
-        const response3 = await axios.get(`${API_URL2}/highest-kva`);
-        const response4 = await axios.get(`${API_URL2}/todayfactor`);
-        console.log(response4.data.data.yesterday.TotalNet_KWH_meter_1)
+        const response2 = await axios.get(`${API_URL2}/highest-kva`);
 
-        setInitialEnergyValues(response.data.initialEnergyValues || {
-          meter_1: null
-        });
-        setMonthlyEnergy(response1.data.totalEnergyConsumptionMeter1.toFixed(3))
-        setHighestkva({
-          today: response3.data.highestKvaToday,
-          month: response3.data.highestKvaMonth
+        setMonthlyEnergy(response1.data.totalEnergyConsumption.toFixed(3))
+        setHighestValue({
+          kvaToday: response2.data.highestKvaToday,
+          kvaMonth: response2.data.highestKvaMonth,
+          kwToday: response2.data.highestKwToday,
+          kwMonth: response2.data.highestKwMonth
         })
-        setTodayFactor({
-          kwh2: response4.data.data.yesterday.TotalNet_KWH_meter_1.toFixed(2),
-          kvah2: response4.data.data.yesterday.Total_KVA_meter_1.toFixed(2),
-          kwh1: response4.data.data.today.TotalNet_KWH_meter_1.toFixed(2),
-          kvah1: response4.data.data.today.Total_KVA_meter_1.toFixed(2)
-        })
+        setPowerFactor(response.data.PowerFactor.toFixed(3));
+        setTodayConsumption(response.data.KVAHConsumption.toFixed(3));
 
       } catch (error) {
         console.error("Error fetching previous day energy:", error);
@@ -79,9 +61,6 @@ const Home = () => {
         const response = await axios.get(`${API_URL}`);
         const newData = response.data;
         setData(newData);
-        setCurrentEnergy({
-          meter_1: newData.TotalNet_KWH_meter_1
-        });
       } catch (error) {
         console.error("Error fetching sensor data:", error);
       }
@@ -92,18 +71,6 @@ const Home = () => {
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
-
-  useEffect(() => {
-    // Calculate consumption based on initial energy and current energy
-    if (initialEnergyValues && currentEnergy) {
-      setTodayConsumption({
-        meter_1: initialEnergyValues.meter_1 && currentEnergy.meter_1 ? 
-          (currentEnergy.meter_1 - initialEnergyValues.meter_1).toFixed(3) : 0,
-      });
-    }
-  }, [initialEnergyValues, currentEnergy]);
-
-  const energy = Number(todayConsumption.meter_1).toFixed(3);
 
   const getPFClass = (avgPF) => {
     if (avgPF < 0.7) {
@@ -220,16 +187,16 @@ const Home = () => {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-4 grid-cols-1">
-          <EnergyUnits energy={energy} monthlyEnergy={monthlyEnergy} kvah2={todayFactor.kvah2} kvah1={todayFactor.kvah1} />
+          <EnergyUnits energy={todayConsumption} monthlyEnergy={monthlyEnergy}  />
           <div className="flex flex-col gap-4">
-            <RealTimeKvaMeter kva={data?.Total_KVA_meter_1} todayKva={highestkva.today} monthKva = {highestkva.month} />
+            <RealTimeKvaMeter kva={data?.Total_KVA_meter_1} todayKva={highestValue.kvaToday} monthKva = {highestValue.kvaMonth} />
           </div>
         </div>
       </div>
       <div className="flex md:flex-row gap-4 flex-col h-[44%] mt-4 ">
-      <RealTimePowerMeter power={data?.Total_KW_meter_1.toFixed(2)} />
-      <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(2)} kwh2={todayFactor.kwh2} kvah2={todayFactor.kvah2} kwh1={todayFactor.kwh1} kvah1={todayFactor.kvah1} />
-      <RealTimeKvahMeter kvah={data?.TotalNet_KVAH_meter_1.toFixed(1)} />
+        <RealTimePowerMeter power={data?.Total_KW_meter_1.toFixed(2)} todayKw={highestValue.kwToday} monthKw = {highestValue.kwMonth} />
+        <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(3)} todayPF={powerFactor} />
+        <RealTimeKvahMeter kvah={data?.TotalNet_KVAH_meter_1.toFixed(1)} kwh={data?.TotalNet_KWH_meter_1.toFixed(3)} />
       </div>
     </section>
     </div>

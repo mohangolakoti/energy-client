@@ -21,6 +21,11 @@ const Sidebar = () => {
             <img src={growth} alt="add" />
           </Link>
         </li>
+        <li className="w-full text-lg font-medium rounded-lg md:my-6 md:ml-2 ml-4  my-6">
+          <Link to="/predictions">
+            <img src={chart} alt="add" />
+          </Link>
+        </li>
       </ul>
 
     </div>

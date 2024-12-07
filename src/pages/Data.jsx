@@ -18,7 +18,6 @@ const Data = () => {
     try {
       const response = await fetch(`${API_URL2}/sensordatabydate/${selectedDate}`);
       const data = await response.json();
-      console.log(data)
       setSensorData(data);
       setError(null); // Clear any previous error
     } catch (err) {
@@ -68,12 +67,12 @@ const Data = () => {
               <thead>
                 <tr>
                   <th className="py-2 px-4 border">Time</th>
-                  <th className="py-2 px-4 border">Total KW</th>
                   <th className="py-2 px-4 border">TotalNet KWH</th>
-                  <th className="py-2 px-4 border">Total KVA</th>
-                  <th className="py-2 px-4 border">Avg PF</th>
                   <th className="py-2 px-4 border">TotalNet KVAH</th>
-                  <th className="py-2 px-4 border">Energy Consumption</th>
+                  <th className="py-2 px-4 border">KWH Consumption</th>
+                  <th className="py-2 px-4 border">KVAH Consumption</th>
+                  <th className="py-2 px-4 border">Difference</th>
+                  <th className="py-2 px-4 border">Avg PF</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,12 +81,12 @@ const Data = () => {
                     <td className="py-2 px-4 border">
                       {new Date(data.timestamp).toLocaleTimeString()}
                     </td>
-                    <td className="py-2 px-4 border">{data.Total_KW_meter_1}</td>
-                    <td className="py-2 px-4 border">{data.TotalNet_KWH_meter_1}</td>
-                    <td className="py-2 px-4 border">{data.Total_KVA_meter_1}</td>
-                    <td className="py-2 px-4 border">{data.Avg_PF_meter_1}</td>
-                    <td className="py-2 px-4 border">{data.TotalNet_KVAH_meter_1}</td>
-                    <td className="py-2 px-4 border">{data.energy_consumption_meter_1}</td>
+                    <td className="py-2 px-4 border">{data.TotalNet_KWH_meter_1.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.TotalNet_KVAH_meter_1.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.KWHConsumption.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.KVAHConsumption.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.Difference.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.PowerFactor.toFixed(3)}</td>
                   </tr>
                 ))}
               </tbody>
