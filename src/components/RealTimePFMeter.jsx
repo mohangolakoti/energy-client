@@ -1,6 +1,6 @@
 import React from "react";
 
-const RealTimePFMeter = ({powerFactor, todayPF}) => {
+const RealTimePFMeter = ({powerFactor, todayPF, monthPF}) => {
   const getPFClass = (avgPF) => {
     if (avgPF < 0.7) {
         return 'bg-red-400'; // Class for red background
@@ -15,10 +15,12 @@ const RealTimePFMeter = ({powerFactor, todayPF}) => {
         <h2 className="font-bold text-xl text-center py-2 font-Montserrat">
           Power Factor
         </h2>
-        <p className="font-medium mt-6">Instaneous  Power Factor </p>
-        <p className={`${getPFClass(powerFactor)} bg-[#a4a4e3] mx-4 p-2 my-3 rounded-lg font-semibold`}>{powerFactor}</p>
-        <p className="font-medium mt-6" >Today Power Facotor</p>
+        {/* <p className="font-medium mt-6">Instaneous  Power Factor </p>
+        <p className={`${getPFClass(powerFactor)} bg-[#a4a4e3] mx-4 p-2 my-3 rounded-lg font-semibold`}>{powerFactor}</p> */}
+        <p className="font-medium mt-6" >Today Power Factor</p>
         <p className="bg-[#a4a4e3] mx-4 my-3 p-2 rounded-lg font-semibold">{todayPF}</p>
+        <p className="font-medium mt-6" >Month Power Factor</p>
+        <p className="bg-[#a4a4e3] mx-4 my-3 p-2 rounded-lg font-semibold">{monthPF}</p>
       </div>
   );
 };

@@ -19,6 +19,7 @@ const Home = () => {
   const [todayConsumption, setTodayConsumption] = useState(null);
   const [monthlyEnergy, setMonthlyEnergy] = useState(null)
   const [powerFactor,setPowerFactor] = useState(null);
+  const [MonthPowerFactor,setMonthPowerFactor] = useState(null);
   const [highestValue, setHighestValue] = useState({
     kvaToday:null,
     kvaMonth:null,
@@ -44,6 +45,7 @@ const Home = () => {
           kwMonth: response2.data.highestKwMonth
         })
         setPowerFactor(response.data.PowerFactor.toFixed(3));
+        setMonthPowerFactor(response.data.MonthPowerFactor.toFixed(3));
         setTodayConsumption(response.data.KVAHConsumption.toFixed(3));
 
       } catch (error) {
@@ -195,7 +197,7 @@ const Home = () => {
       </div>
       <div className="flex md:flex-row gap-4 flex-col h-[44%] mt-4 ">
         <RealTimePowerMeter power={data?.Total_KW_meter_1.toFixed(2)} todayKw={highestValue.kwToday} monthKw = {highestValue.kwMonth} />
-        <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(3)} todayPF={powerFactor} />
+        <RealTimePFMeter powerFactor={data?.Avg_PF_meter_1.toFixed(3)} todayPF={powerFactor} monthPF={MonthPowerFactor} />
         <RealTimeKvahMeter kvah={data?.TotalNet_KVAH_meter_1.toFixed(1)} kwh={data?.TotalNet_KWH_meter_1.toFixed(3)} />
       </div>
     </section>
