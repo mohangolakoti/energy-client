@@ -73,6 +73,7 @@ const Data = () => {
                   <th className="py-2 px-4 border">KVAH Consumption</th>
                   <th className="py-2 px-4 border">Difference</th>
                   <th className="py-2 px-4 border">Avg PF</th>
+                  <th className="py-2 px-4 border">Month PF</th>
                 </tr>
               </thead>
               <tbody>
@@ -87,6 +88,7 @@ const Data = () => {
                     <td className="py-2 px-4 border">{data.KVAHConsumption.toFixed(3)}</td>
                     <td className="py-2 px-4 border">{data.Difference.toFixed(3)}</td>
                     <td className="py-2 px-4 border">{data.PowerFactor.toFixed(3)}</td>
+                    <td className="py-2 px-4 border">{data.MonthPowerFactor.toFixed(3)}</td>
                   </tr>
                 ))}
               </tbody>
